@@ -9,7 +9,7 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
     EditText etNick;
-    Button btnStart;
+    Button btnStart, btnRanking;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
         etNick = findViewById(R.id.editTextNick);
         btnStart = findViewById(R.id.buttonStartGame);
+        btnRanking = findViewById(R.id.buttonRanking);
 
         // Button >>> click event (start game)
         btnStart.setOnClickListener(new View.OnClickListener() {
@@ -30,6 +31,14 @@ public class MainActivity extends AppCompatActivity {
                 // var > nickname, value > etNick.getText().toString()
                 i.putExtra("nickname", etNick.getText().toString());
 
+                startActivity(i);
+            }
+        });
+
+        btnRanking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, RankingActivity.class);
                 startActivity(i);
             }
         });
